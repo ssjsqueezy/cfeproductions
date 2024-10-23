@@ -1,0 +1,150 @@
+/* General reset and box-sizing for consistent layouts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  background-color: black;
+  color: #e5ff00;
+  font-family: 'Orbitron', sans-serif;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* Fullscreen Video Background */
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Hide scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Projects Section Layout */
+.projects-section {
+  display: flex;
+  justify-content: flex-end;
+  min-height: 50vh;
+  width: 100%;
+  padding-right: 20px;
+  transition: filter 0.5s ease-in-out;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+}
+
+/* Projects container */
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 40%;
+  padding: 10px 0;
+  height: auto;
+}
+
+/* Individual project styling */
+.projects > .project {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 20px;
+  cursor: pointer;
+  justify-content: right;
+  align-items: flex-end;
+  position: relative;
+  transition: filter 0.5s ease-in-out;
+}
+
+/* Blur effect for non-hovered projects */
+.projects > .project:not(:hover) {
+  filter: blur(4px);
+}
+
+/* Project title styling */
+.project h1 {
+  font-size: 4vw;
+  line-height: 1.2;
+  font-weight: 400;
+  opacity: 0.5;
+  transition: opacity 0.5s ease-in-out;
+  text-align: right;
+}
+
+/* Span element to align project details */
+.project span {
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+/* Project description text */
+.project span p {
+  text-transform: uppercase;
+  font-size: 2vw;
+  width: 0;
+  transition: width 0.5s;
+  text-align: right;
+}
+
+/* On hover, reveal project details */
+.project:hover h1 {
+  opacity: 1;
+}
+
+.project:hover span p {
+  width: 100%;
+}
+
+/* Clear blur on hover */
+.project:hover {
+  filter: none;
+}
+
+/* 3D logo container for desktop (default) */
+#threejs-logo-container {
+  position: fixed;
+  top: 10px; /* Adjust for top-left positioning */
+  left: 10px;
+  width: 150px; /* Adjust size */
+  height: 150px;
+  z-index: 10;
+  transition: top 0.3s ease, left 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+/* Canvas for 3D rendering */
+canvas {
+  width: 100%; /* Ensure it scales based on the container */
+  height: auto;
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 768px) {
+  /* Shrink and reposition the 3D logo in mobile view */
+  #threejs-logo-container {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+  }
+
+  canvas {
+    width: 100% !important; /* Adjust the size of the canvas */
+    height: auto !important;
+  }
+
+  /* Add margin above projects section for mobile view */
+  .projects-section {
+    margin-top: 100px; /* Adjust this value as needed */
+  }
+}
