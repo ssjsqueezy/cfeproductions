@@ -112,10 +112,13 @@ body {
 /* 3D logo container for desktop (default) */
 #threejs-logo-container {
   position: fixed;
-  top: 10px; /* Adjust for top-left positioning */
-  left: 10px;
-  width: 150px; /* Adjust size */
+  top: -20px; /* Set to top-left corner */
+  left: -80px; /* Moved 20px to the left */
+  width: 150px;
   height: 150px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   z-index: 10;
   transition: top 0.3s ease, left 0.3s ease, width 0.3s ease, height 0.3s ease;
 }
